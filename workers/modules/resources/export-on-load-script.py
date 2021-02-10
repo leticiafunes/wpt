@@ -1,3 +1,5 @@
+import datetime
+
 def main(request, response):
     # This script serves both preflight and main GET request for cross-origin
     # static imports from module service workers.
@@ -8,4 +10,4 @@ def main(request, response):
                         (b"Access-Control-Allow-Origin", b"*"),
                         (b"Access-Control-Allow-Headers", b"Service-Worker")]
     return (200, response_headers,
-            b"export const importedModules = ['export-on-load-script.js'];")
+            b"export const importedModules = ['export-on-load-script.js'];", datetime.datetime.now())
